@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pranto.krishokerhasi.activity_package.activity.after_catagory_clicked">
+    tools:context="com.example.pranto.krishokerhasi.activity.after_catagory_clicked">
 
 
     <!--LinearLayout1 nisi jeno mobile screen er uporer bar theke option gula ektu distance e ase-->
