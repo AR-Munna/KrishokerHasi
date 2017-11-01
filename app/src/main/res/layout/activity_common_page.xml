@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--LinearLayout1 nisi jeno mobile screen er uporer bar theke option gula ektu distance e ase-->
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/selection_075">
+
+    </LinearLayout>
+
+    <!--Relative_layout_for_options er vitor common page er sob option gula rakbo :) -->
+
+
+    <RelativeLayout
+        android:id="@+id/Relative_layout_for_options"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/LinearLayout1">
+
+        <Button
+            android:id="@+id/text_button"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@mipmap/text"
+            android:layout_marginLeft="25dp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/text_button"
+            android:text=" টেক্সট ফাইল"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/background_dark"
+            />
+
+        <Button
+            android:id="@+id/audio_button"
+            android:layout_marginLeft="220dp"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@mipmap/audio"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/audio_button"
+            android:text="অডিও ফাইল"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="210dp"
+            android:textColor="@android:color/background_dark"
+            />
+
+        <Button
+            android:id="@+id/ask_button"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@mipmap/ask"
+            android:layout_below="@+id/text_button"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            />
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/ask_button"
+            android:text="আপনার জিজ্ঞাসা"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/background_dark"
+            />
+
+        <Button
+            android:id="@+id/hotline_button"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@mipmap/call"
+            android:layout_marginLeft="220dp"
+            android:layout_below="@+id/audio_button"
+            android:layout_marginTop="60dp"/>
+
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/hotline_button"
+            android:text="হট লাইন"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="230dp"
+            android:textColor="@android:color/background_dark"
+            />
+
+        <Button
+            android:id="@+id/notification_button"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@mipmap/notification"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/ask_button"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/notification_button"
+            android:text="নোটিফিকেশন"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="25dp"
+            android:textColor="@android:color/background_dark"
+            />
+
+        <Button
+            android:id="@+id/share_button"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@mipmap/share"
+            android:layout_marginLeft="220dp"
+            android:layout_below="@+id/hotline_button"
+            android:layout_marginTop="60dp"/>
+
+        <TextView
+            android:id="@+id/share_text"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/share_button"
+            android:text="শেয়ার করুন"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="210dp"
+            android:textColor="@android:color/background_dark"
+            />
+
+        <!--Home button r back button nisi :)-->
+
+    </RelativeLayout>
+
+</RelativeLayout>
