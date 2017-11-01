@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.common_page" />
-        <activity android:name=".activity.after_catagory_clicked"></activity>
+        <activity android:name=".activity.after_catagory_clicked" />
+        <activity android:name=".activity.after_update_clicked" />
+        <activity android:name=".activity.InfoPage"></activity>
     </application>
 
 </manifest>
