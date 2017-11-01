@@ -47,10 +47,10 @@ public class after_update_clicked extends AppCompatActivity {
 
     void CreateIntent(String data)
     {
-        Intent i = new Intent(after_update_clicked.this, InfoPage.class);
+        Intent intent = new Intent(after_update_clicked.this, InfoPage.class);
         Bundle bundle = new Bundle();
         bundle.putString("stuff", data);
-        i.putExtras(bundle);
-        startActivity(i);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
