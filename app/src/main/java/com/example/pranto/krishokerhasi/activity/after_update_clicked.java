@@ -12,13 +12,14 @@ import com.example.pranto.krishokerhasi.R;
 public class after_update_clicked extends AppCompatActivity {
 
     Button button1,button2,button3;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_update_clicked);
 
-        TextView textView = (TextView)findViewById(R.id.tv);
+        textView = (TextView)findViewById(R.id.tv);
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
