@@ -5,4 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main_socialnetwork">MainActivity_socialnetwork</string>
+    <string name="loading">Loading....</string>
+    <string name="web_client_id">557796573589-mp5bri80f0jivn5r1q08e726532bna87.apps.googleusercontent.com</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

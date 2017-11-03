@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/logInButton"
+            android:icon="@mipmap/login"
+            android:title="লগ ইন" />
+
+        <item
+            android:id="@+id/postButton"
+            android:icon="@mipmap/post"
+            android:title="পোস্ট" />
+        <item
+            android:id="@+id/logoutButton"
+            android:icon="@mipmap/logout"
+            android:title="লগ আউট" />
+    </group>
+
+    <item android:title="প্রোফাইল">
+        <menu>
+            <item
+                android:id="@+id/yourPost"
+                android:icon="@mipmap/allpost"
+                android:title="আপনার পোস্টসমূহ" />
+            <item
+                android:id="@+id/allUsers"
+                android:icon="@mipmap/alluser"
+                android:title="ফ্রেন্ডস" />
+        </menu>
+    </item>
+
+</menu>

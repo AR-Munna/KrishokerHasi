@@ -16,6 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.pranto.krishokerhasi.R;
+import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.MainActivity_socialnetwork;
+import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.PostActivity;
+import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.RegisterActivity;
+import com.example.pranto.krishokerhasi.socialnetwork.ui.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +28,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mainpage);
 
         //first time app install dile frequency reset kore dea hbe
         FirstTimeRun();
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
+        getMenuInflater().inflate(R.menu.activity_mainpage_drawer, menu);
         return true;
     }
 
@@ -145,7 +149,7 @@ public class MainActivity extends AppCompatActivity
 
         else if (id == R.id.post)
         {
-            Intent intent = new Intent(MainActivity.this, common_page.class);
+            Intent intent = new Intent(MainActivity.this, MainActivity_socialnetwork.class);
             startActivity(intent);
         }
 

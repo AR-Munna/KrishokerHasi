@@ -22,7 +22,13 @@
         <activity android:name=".activity.common_page" />
         <activity android:name=".activity.after_catagory_clicked" />
         <activity android:name=".activity.after_update_clicked" />
-        <activity android:name=".activity.InfoPage"></activity>
+        <activity android:name=".activity.InfoPage" />
+        <activity
+            android:name=".socialnetwork.ui.activities.MainActivity_socialnetwork"
+            android:label="@string/title_activity_main_socialnetwork"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".socialnetwork.ui.activities.PostActivity" />
+        <activity android:name=".socialnetwork.ui.activities.RegisterActivity" />
     </application>
 
 </manifest>
