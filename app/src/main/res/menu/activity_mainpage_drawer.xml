@@ -23,11 +23,6 @@
             android:title="বার্তা"/>
 
         <item
-            android:id="@+id/settings"
-            android:icon="@drawable/settings"
-            android:title="সেটিংস" />
-
-        <item
             android:id="@+id/about_us"
             android:icon="@drawable/about_us_icon"
             android:title="আমাদের সম্পর্কে"/>
@@ -35,7 +30,12 @@
         <item
             android:icon="@drawable/rating"
             android:id="@+id/rating"
-            android:title="রেটিংস"/>
+            android:title="কৃষি খবর"/>
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/settings"
+            android:title="সেটিংস" />
 
         <item
             android:id="@+id/exit"

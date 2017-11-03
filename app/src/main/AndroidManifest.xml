@@ -29,6 +29,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".socialnetwork.ui.activities.PostActivity" />
         <activity android:name=".socialnetwork.ui.activities.RegisterActivity" />
+        <activity android:name=".activity.after_animal_clicked" />
+        <activity android:name=".activity.after_crop_clicked" />
+        <activity android:name=".activity.after_fish_clicked" />
+        <activity android:name=".activity.after_fruits_clicked"></activity>
     </application>
 
 </manifest>

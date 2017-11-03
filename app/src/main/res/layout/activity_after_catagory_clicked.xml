@@ -8,12 +8,12 @@
     tools:context="com.example.pranto.krishokerhasi.activity.after_catagory_clicked">
 
 
-    <!--LinearLayout1 nisi jeno mobile screen er uporer bar theke option gula ektu distance e ase-->
+    <!--This LinearLayout is for the krisoker hasi image-->
 
     <LinearLayout
         android:id="@+id/LinearLayout1"
         android:orientation="horizontal"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/selection_075"
         tools:layout_editor_absoluteY="0dp"
@@ -28,7 +28,7 @@
         android:layout_height="0dp"
         android:layout_below="@id/LinearLayout1"/>
 
-    <!--Relative_layout_for_options er vitor common page er sob option gula rakbo :) -->
+    <!--This Relative layout holds the 4 catagory :) -->
 
     <RelativeLayout
         android:id="@+id/Relative_layout_for_options"
@@ -51,7 +51,7 @@
             android:text="ফসল"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="55dp"
             android:textColor="@android:color/background_dark"
             />
 
@@ -92,7 +92,7 @@
             android:text="মাছ"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="55dp"
             android:textColor="@android:color/background_dark"
             />
 

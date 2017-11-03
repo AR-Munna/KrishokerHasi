@@ -1,8 +1,13 @@
 package com.example.pranto.krishokerhasi.activity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
@@ -14,15 +19,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.pranto.krishokerhasi.R;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.MainActivity_socialnetwork;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.PostActivity;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.RegisterActivity;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.fragments.HomeFragment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private DatabaseReference mDatabase;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,14 +152,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        /*---------------------exit button er kaj eikhane hobe-----------------------------------------*/
+        /*---------------------after clicked exit button exit function will execute-----------------------------------------*/
 
         else if (id == R.id.exit)
         {
             exitFunction();
         }
 
-
+        /*----------------------post button will work for socialnetwork to post, comment-------------------------------------*/
 
         else if (id == R.id.post)
         {
@@ -153,15 +167,31 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
 
+        /*--------------------update button will work as a sync button to load data from firebase to sqlite database----------*/
         else if (id == R.id.update)
         {
+            if(IsNetAvailable())
+            {
+                ClearDataBase();
+                SaveUpdatesPageData();
+                SaveCatagory();
+            }
+
+            else
+            {
+                progressDialog.setMessage("দুঃখিত! ইন্টারনেট সংযোগ নেই :(");
+                progressDialog.setCancelable(false);
+                progressDialog.setIndeterminate(true);
+                progressDialog.show();
+            }
+
+        }
+
+        else if (id == R.id.about_us) {
             Intent intent = new Intent(MainActivity.this, after_update_clicked.class);
             startActivity(intent);
         }
-
-        /*else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        /*else if (id == R.id.nav_send) {
 
         }*/
 
@@ -179,6 +209,130 @@ public class MainActivity extends AppCompatActivity
 
         for (int i = 0; i < 4; i++) {
             boolean isInseted = dbh.insertData(i + 1000, String.valueOf(arr[i]));
+        }
+    }
+
+    boolean IsNetAvailable()
+    {
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
+            return true;
+        return false;
+    }
+
+    void ToastMethod(String str)
+        {
+        Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();}
+
+    void ClearDataBase()
+    {
+        final DatabaseHelper dbh = new DatabaseHelper(this);
+        int[] TempArray = new int[4];
+        TempArray = load_frequency();
+        dbh.db.execSQL("DROP TABLE IF EXISTS "+dbh.table);
+        dbh.db.execSQL("create table "+dbh.table+" (ID INTEGER,INFO TEXT)");
+        save_frequency(TempArray);
+    }
+
+    int Getfrequency(int i)
+    {
+        DatabaseHelper dbh = new DatabaseHelper(this);
+
+        Cursor res = dbh.getAllData(i+1000);
+        if(res.getCount()==0)
+            return 0;
+
+        StringBuffer buffer = new StringBuffer();
+
+        while(res.moveToNext())
+            buffer.append(res.getString(1));
+
+        return Integer.parseInt(buffer.toString());
+    }
+
+    void save_frequency(int[] a)
+    {
+        DatabaseHelper dbh = new DatabaseHelper(this);
+        for (int i = 0; i < 4; i++) {
+            boolean isInseted = dbh.insertData(i+1000, String.valueOf(a[i]));
+        }
+    }
+
+    int[] load_frequency()
+    {
+        DatabaseHelper dbh = new DatabaseHelper(this);
+        int[] a = new int[4];
+        for (int i = 0; i < 4; i++)
+            a[i] = Getfrequency(i);
+        return a;
+    }
+
+    void SaveUpdatesPageData()
+    {
+        final DatabaseHelper dbh = new DatabaseHelper(this);
+
+        for (int i = 0; i < 10; i++) {
+            String indexa = String.valueOf(i/10);
+            String indexb = String.valueOf(i%10);
+            mDatabase = FirebaseDatabase.getInstance().getReference().child("update"+indexa+"/"+indexb);
+
+            final int finalI = i;
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue().toString() ;
+                    boolean isInseted = dbh.insertData(finalI+400,value);}
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+        }
+
+    }
+
+    void SaveCatagory()
+    {
+        final DatabaseHelper dbh = new DatabaseHelper(this);
+
+        for (int i = 0; i < 1; i++) {
+            mDatabase = FirebaseDatabase.getInstance().getReference().child("catagory/"+String.valueOf(i));
+
+            final int finalI = i;
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String catagory = dataSnapshot.getValue().toString() ;
+                    String[] separatedcatagory = catagory.split(",");
+                    boolean isInseted = dbh.insertData(finalI+500, String.valueOf(separatedcatagory.length));
+                    SaveOfflineData(finalI,separatedcatagory);}
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+        }
+    }
+
+    void SaveOfflineData(int idx,String[] separatedcatagory)
+    {
+        final DatabaseHelper dbh = new DatabaseHelper(this);
+        for (int j = 0; j < separatedcatagory.length; j++)
+        {
+            mDatabase = FirebaseDatabase.getInstance().getReference().child("data/"+String.valueOf(idx*100+j));
+
+            final int finalI = idx*100+j;
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue().toString() ;
+                    //edit.append(value);
+                    boolean isInseted = dbh.insertData(finalI,value);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
         }
     }
 }

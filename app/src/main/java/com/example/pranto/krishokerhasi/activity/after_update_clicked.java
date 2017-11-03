@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class after_update_clicked extends AppCompatActivity {
 
     Button button1,button2,button3;
     TextView textView;
+    EditText editText;
     private DatabaseReference mDatabase;
 
     @Override
@@ -31,6 +33,7 @@ public class after_update_clicked extends AppCompatActivity {
         setContentView(R.layout.activity_after_update_clicked);
 
         textView = (TextView)findViewById(R.id.tv);
+        editText = (EditText)findViewById(R.id.edittext1);
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
@@ -53,7 +56,8 @@ public class after_update_clicked extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ClearDataBase();
+                int query = Integer.parseInt(editText.getText().toString());
+                GetOfflineData(query);
 
             }
         });
@@ -71,7 +75,7 @@ public class after_update_clicked extends AppCompatActivity {
     //index er data firebase thk niya ase
     void GetOnlineData(int i)
     {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child(String.valueOf(i));
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("data/"+String.valueOf(i));
         //mDatabase = FirebaseDatabase.getInstance().getReference().child("option"+"0"+"/"+"0");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
