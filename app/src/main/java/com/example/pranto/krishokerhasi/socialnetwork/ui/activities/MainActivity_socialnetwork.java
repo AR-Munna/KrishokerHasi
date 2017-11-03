@@ -19,7 +19,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.pranto.krishokerhasi.R;
+import com.example.pranto.krishokerhasi.activity.MainActivity;
 import com.example.pranto.krishokerhasi.socialnetwork.models.User;
+import com.example.pranto.krishokerhasi.socialnetwork.ui.dialogs.PostCreateDialog;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.fragments.HomeFragment;
 import com.example.pranto.krishokerhasi.socialnetwork.utils.BaseActivity;
 import com.example.pranto.krishokerhasi.socialnetwork.utils.FirebaseUtils;
@@ -151,9 +153,15 @@ public class MainActivity_socialnetwork extends BaseActivity
         {
 
         }
-        else if (id == R.id.logoutButton) {
 
-        } else if (id == R.id.yourPost)
+        else if (id == R.id.logoutButton)
+        {
+            Intent intent = new Intent(MainActivity_socialnetwork.this, MainActivity.class);
+            this.finish();
+            startActivity(intent);
+        }
+
+        else if (id == R.id.yourPost)
         {
 
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,4 +9,116 @@
     tools:context="com.example.pranto.krishokerhasi.activity.MainActivity"
     tools:showIn="@layout/app_bar_mainpage">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp">
+
+        <LinearLayout
+            android:id="@+id/backimage1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/backgroundImage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    />
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+<!--
+<LinearLayout
+android:id="@+id/backimage2"
+android:layout_width="200dp"
+android:layout_height="250dp"
+android:orientation="horizontal"
+android:layout_below="@+id/backimage1">
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/backgroundImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        />
+
+</android.support.v7.widget.CardView>
+
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/backimage3"
+android:layout_width="185dp"
+android:layout_height="250dp"
+android:orientation="horizontal"
+android:layout_alignParentRight="true">
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ImageView
+        android:id="@+id/backgroundImage3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        />
+
+</android.support.v7.widget.CardView>
+
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/backimage4"
+android:layout_width="185dp"
+android:layout_height="250dp"
+android:orientation="horizontal"
+android:layout_below="@+id/backimage3"
+android:layout_alignParentRight="true">
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/backgroundImage4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        />
+
+</android.support.v7.widget.CardView>
+
+</LinearLayout>-->
+
+
+
+
+

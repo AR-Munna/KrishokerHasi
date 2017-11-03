@@ -1,6 +1,7 @@
 package com.example.pranto.krishokerhasi.socialnetwork.ui.dialogs;
 
 import android.app.Dialog;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -66,7 +67,7 @@ public class PostCreateDialog extends DialogFragment implements View.OnClickList
         }
     }
 
-    private void sendPost() {
+    public void sendPost() {
         mProgressDialog.setMessage("অপেক্ষা করুন, আপনার পোস্ট পাঠানো হচ্ছে...");
         mProgressDialog.setCancelable(false);
         mProgressDialog.setIndeterminate(true);
@@ -113,7 +114,7 @@ public class PostCreateDialog extends DialogFragment implements View.OnClickList
                 });
     }
 
-    private void addToMyPostList(String postId) {
+    public void addToMyPostList(String postId) {
         FirebaseUtils.getPostRef().child(postId)
                 .setValue(mPost);
         FirebaseUtils.getMyPostRef().child(postId).setValue(true)
@@ -128,7 +129,7 @@ public class PostCreateDialog extends DialogFragment implements View.OnClickList
         FirebaseUtils.addToMyRecord(Constants.POST_KEY, postId);
     }
 
-    private void selectImage() {
+    public void selectImage() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/jpeg");
         intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
@@ -145,4 +146,6 @@ public class PostCreateDialog extends DialogFragment implements View.OnClickList
             }
         }
     }
+
+
 }

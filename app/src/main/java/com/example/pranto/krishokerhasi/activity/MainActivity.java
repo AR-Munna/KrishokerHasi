@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.pranto.krishokerhasi.R;
@@ -37,12 +38,27 @@ public class MainActivity extends AppCompatActivity
 
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
+    private ImageView imageView1, imageView2, imageView3, imageView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_mainpage);
+
+        imageView1 = (ImageView)findViewById(R.id.backgroundImage1);
+        //imageView2 = (ImageView)findViewById(R.id.backgroundImage2);
+        //imageView3 = (ImageView)findViewById(R.id.backgroundImage3);
+        //imageView4 = (ImageView)findViewById(R.id.backgroundImage4);
+
+        /*
+        imageView1.setBackgroundResource(R.mipmap.homepage5);
+        imageView2.setBackgroundResource(R.mipmap.homepage4);
+        imageView3.setBackgroundResource(R.mipmap.homepage1);
+        imageView4.setBackgroundResource(R.mipmap.homepage2);
+        */
+
+        imageView1.setBackgroundResource(R.drawable.homepage5);
 
         //first time app install dile frequency reset kore dea hbe
         FirstTimeRun();
@@ -176,15 +192,6 @@ public class MainActivity extends AppCompatActivity
                 SaveUpdatesPageData();
                 SaveCatagory();
             }
-
-            else
-            {
-                progressDialog.setMessage("দুঃখিত! ইন্টারনেট সংযোগ নেই :(");
-                progressDialog.setCancelable(false);
-                progressDialog.setIndeterminate(true);
-                progressDialog.show();
-            }
-
         }
 
         else if (id == R.id.about_us) {

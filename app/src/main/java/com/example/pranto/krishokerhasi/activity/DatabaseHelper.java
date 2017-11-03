@@ -33,6 +33,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
     }
 
+    public DatabaseHelper(after_fish_clicked context) {
+        super(context, DATABASE_NAME,null,1);
+        db = this.getWritableDatabase();
+    }
+
+    public DatabaseHelper(after_animal_clicked context) {
+        super(context, DATABASE_NAME,null,1);
+        db = this.getWritableDatabase();
+    }
+
+    public DatabaseHelper(after_fruits_clicked context) {
+        super(context, DATABASE_NAME,null,1);
+        db = this.getWritableDatabase();
+    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {

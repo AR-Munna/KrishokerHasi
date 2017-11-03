@@ -69,6 +69,18 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
             Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
             startActivity(intent);
         }
+
+        else if(id==R.id.Fish_button)
+        {
+            Intent intent = new Intent(after_catagory_clicked.this, after_fish_clicked.class);
+            startActivity(intent);
+        }
+
+        else if(id==R.id.Fruits_button)
+        {
+            Intent intent = new Intent(after_catagory_clicked.this, after_fruits_clicked.class);
+            startActivity(intent);
+        }
     }
 }
 
