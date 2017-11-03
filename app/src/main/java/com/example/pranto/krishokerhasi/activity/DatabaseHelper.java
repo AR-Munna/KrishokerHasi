@@ -18,6 +18,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
     }
 
+    public DatabaseHelper(after_catagory_clicked context) {
+        super(context, DATABASE_NAME,null,1);
+        db = this.getWritableDatabase();
+    }
+
+    public DatabaseHelper(MainActivity context) {
+        super(context, DATABASE_NAME,null,1);
+        db = this.getWritableDatabase();
+    }
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+table+" (ID INTEGER,INFO TEXT)");

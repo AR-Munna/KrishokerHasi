@@ -2,7 +2,9 @@ package com.example.pranto.krishokerhasi.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +26,9 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
 
+        //first time app install dile frequency reset kore dea hbe
+        FirstTimeRun();
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -37,6 +42,18 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+    }
+
+    private void FirstTimeRun() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!prefs.getBoolean("firstTime", false)) {
+            refreshfrequency();
+
+            // mark first time has runned.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
     }
 
     @Override
@@ -147,5 +164,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //catagory button er frequency reset kora
+    void refreshfrequency() {
+        final DatabaseHelper dbh = new DatabaseHelper(this);
+        dbh.db.execSQL("DROP TABLE IF EXISTS " + dbh.table);
+        dbh.db.execSQL("create table " + dbh.table + " (ID INTEGER,INFO TEXT)");
+        int[] arr = {0, 0, 0, 0};
+
+        for (int i = 0; i < 4; i++) {
+            boolean isInseted = dbh.insertData(i + 1000, String.valueOf(arr[i]));
+        }
     }
 }

@@ -22,6 +22,12 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/freq"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/LinearLayout1"/>
+
     <!--Relative_layout_for_options er vitor common page er sob option gula rakbo :) -->
 
     <RelativeLayout
@@ -111,6 +117,8 @@
             android:layout_marginLeft="233dp"
             android:textColor="@android:color/background_dark"
             />
+
+
 
     </RelativeLayout>
 
