@@ -230,7 +230,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     void ToastMethod(String str)
-        {
+    {
         Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();}
 
     void ClearDataBase()
