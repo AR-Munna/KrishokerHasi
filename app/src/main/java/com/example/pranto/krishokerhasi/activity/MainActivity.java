@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.design.widget.NavigationView;
@@ -31,14 +32,22 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final long GET_DATA_INTERVAL = 1500;
+
+    //int images[] = {R.drawable.homepage1, R.drawable.homepage2,R.drawable.homepage3, R.drawable.homepage4,R.drawable.homepage5};
+    int images[] = {R.drawable.homepage1, R.drawable.homepage3, R.drawable.homepage4};
+
+    int index = 0;
+    Handler hand = new Handler();
 
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
-    private ImageView imageView1, imageView2, imageView3, imageView4;
+    private ImageView imageView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +56,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_mainpage);
 
         imageView1 = (ImageView)findViewById(R.id.backgroundImage1);
-        //imageView2 = (ImageView)findViewById(R.id.backgroundImage2);
-        //imageView3 = (ImageView)findViewById(R.id.backgroundImage3);
-        //imageView4 = (ImageView)findViewById(R.id.backgroundImage4);
-
-        /*
-        imageView1.setBackgroundResource(R.mipmap.homepage5);
-        imageView2.setBackgroundResource(R.mipmap.homepage4);
-        imageView3.setBackgroundResource(R.mipmap.homepage1);
-        imageView4.setBackgroundResource(R.mipmap.homepage2);
-        */
-
-        imageView1.setBackgroundResource(R.drawable.homepage5);
+        hand.postDelayed(run, GET_DATA_INTERVAL);
 
         //first time app install dile frequency reset kore dea hbe
         FirstTimeRun();
@@ -77,6 +75,22 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
     }
+
+    /*-----------------------------------this function is used to make animation on the homepage---------------------------------*/
+
+
+    Runnable run = new Runnable() {
+        @Override
+        public void run() {
+            if(index<images.length) {
+                imageView1.setBackgroundDrawable(getResources().getDrawable(images[index++]));
+            }
+            else {
+                index = 0;
+            }
+            hand.postDelayed(run, GET_DATA_INTERVAL);
+        }
+    };
 
     private void FirstTimeRun() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
