@@ -56,6 +56,7 @@
                 android:layout_marginTop="25dp"/>
 
             <TextView
+                android:id="@+id/cow_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/cow_button"
@@ -75,6 +76,7 @@
                 android:layout_marginTop="25dp" />
 
             <TextView
+                android:id="@+id/bufelo_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/buffalo_button"
@@ -96,6 +98,7 @@
                 android:layout_marginLeft="20dp"/>
 
             <TextView
+                android:id="@+id/goat_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/goat_button"
@@ -117,6 +120,7 @@
 
 
             <TextView
+                android:id="@+id/sheep_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/sheep_button"
@@ -138,6 +142,7 @@
                 android:layout_marginLeft="20dp"/>
 
             <TextView
+                android:id="@+id/chicken_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/chicken_button"
@@ -158,6 +163,7 @@
                 android:layout_marginTop="50dp"/>
 
             <TextView
+                android:id="@+id/duck_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/duck_button"
@@ -179,6 +185,7 @@
                 android:layout_marginLeft="20dp"/>
 
             <TextView
+                android:id="@+id/peageon_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/pegeon_button"
@@ -199,6 +206,7 @@
                 android:layout_marginTop="50dp"/>
 
             <TextView
+                android:id="@+id/koel_text"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/koel_button"

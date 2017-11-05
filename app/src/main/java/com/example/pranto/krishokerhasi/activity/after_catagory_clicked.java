@@ -68,16 +68,14 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
 
         else if(id==R.id.Animal_button)
         {
-            //view.startAnimation(animRotate);
-            //Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
-            //startActivity(intent);
+            Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
+            animationStart(view, intent);
         }
 
         else if(id==R.id.Fish_button)
         {
-            //view.startAnimation(animScale);
-            //Intent intent = new Intent(after_catagory_clicked.this, after_fish_clicked.class);
-            //startActivity(intent);
+            Intent intent = new Intent(after_catagory_clicked.this, after_fish_clicked.class);
+            animationStart(view, intent);
         }
 
         else if(id==R.id.Fruits_button)

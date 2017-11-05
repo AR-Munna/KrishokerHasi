@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -275,6 +276,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(MainActivity.this, after_update_clicked.class);
             startActivity(intent);
         }
+
+        else if (id==R.id.search)
+        {
+            Intent intent = new Intent(MainActivity.this, text_search.class);
+            startActivity(intent);
+        }
+
+        else if (id==R.id.hotline)
+        {
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse("tel:16123"));
+            startActivity(callIntent);
+        }
+
         /*else if (id == R.id.nav_send) {
 
         }*/
@@ -380,7 +395,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         final DatabaseHelper dbh = new DatabaseHelper(this);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 4; i++) {
             mDatabase = FirebaseDatabase.getInstance().getReference().child("catagory/"+String.valueOf(i));
 
             final int finalI = i;

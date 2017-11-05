@@ -18,7 +18,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
     private static Button[] buttonArray = new Button[7];
     private Button button;
     private Animation animAlpha, animRotate, animScale, animTranslate;
-    private int itemCode;
+    private int itemCode, audioCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,8 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
 
         setButtonArray();
 
-        itemCode = getIntent().getIntExtra("itemCode", 0);
+        itemCode = getIntent().getIntExtra("itemcode", 0);
+        audioCode = (itemCode/10)+(itemCode%10);
 
         for (int i=0; i<7; i++) buttonArray[i].setOnClickListener(this);
     }
@@ -45,6 +46,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
         else if(id==R.id.audio_button)
         {
             Intent intent = new Intent(common_page.this, audio_file.class);
+            intent.putExtra("audioCode", audioCode);
             animationStart(view, intent);
         }
         else if(id==R.id.ask_button)
@@ -56,7 +58,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
         else if(id == R.id.hotline_button)
         {
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
-            callIntent.setData(Uri.parse("tel:+8801780552894"));
+            callIntent.setData(Uri.parse("tel:+16123"));
             animationStart(view, callIntent);
         }
 

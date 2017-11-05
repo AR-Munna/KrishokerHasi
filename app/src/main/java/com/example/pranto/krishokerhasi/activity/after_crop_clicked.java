@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +18,11 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
     private static TextView[] TextViewArray = new TextView[10];
     private int catagoryCode;
     private int itemCode;
+
+    private Button homeButton;
+
+    private Animation animAlpha, animRotate, animScale, animTranslate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +42,9 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
         }
 
         for (int i=0; i<noOfItems; i++) buttonArray[i].setOnClickListener(this);
+
+        homeButton = (Button)findViewById(R.id.homebutton);
+        homeButton.setOnClickListener(this);
     }
 
     @Override
@@ -47,7 +57,69 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
             itemCode = (catagoryCode*100)+0;
             Intent intent = new Intent(after_crop_clicked.this, common_page.class);
             intent.putExtra("itemcode", itemCode);
-            startActivity(intent);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.wheat_button)
+        {
+            itemCode = (catagoryCode*100)+1;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.corn_button)
+        {
+            itemCode = (catagoryCode*100)+2;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.potato_button)
+        {
+            itemCode = (catagoryCode*100)+3;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.jute_button)
+        {
+            itemCode = (catagoryCode*100)+4;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.sugarcane_button)
+        {
+            itemCode = (catagoryCode*100)+5;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.brinjal_button)
+        {
+            itemCode = (catagoryCode*100)+6;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id==R.id.potol_button)
+        {
+            itemCode = (catagoryCode*100)+7;
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
+            animationStart(view, intent);
+        }
+
+        else if(id == R.id.homebutton)
+        {
+            Intent intent = new Intent(after_crop_clicked.this, MainActivity.class);
+            animationStart(view, intent);
         }
     }
 
@@ -84,6 +156,11 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
         buttonArray[8] = (Button)findViewById(R.id.onion_button);
         buttonArray[9] = (Button)findViewById(R.id.morich_button);
 
+        animAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        animRotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        animScale = AnimationUtils.loadAnimation(this, R.anim.scale);
+        animTranslate = AnimationUtils.loadAnimation(this, R.anim.translate);
+
     }
 
     /*-------------------------------------this function is used to set textArray-----------------------*/
@@ -100,5 +177,27 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
         TextViewArray[7] = (TextView) findViewById(R.id.potol_text);
         TextViewArray[8] = (TextView) findViewById(R.id.onion_text);
         TextViewArray[9] = (TextView) findViewById(R.id.morich_text);
+    }
+
+    public void animationStart(View view, final Intent intent)
+    {
+        view.startAnimation(animScale);
+
+        animScale.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                startActivity(intent);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }

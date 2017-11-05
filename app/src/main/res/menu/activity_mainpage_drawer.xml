@@ -18,11 +18,14 @@
             android:title="আপডেট" />
 
         <item
-            android:id="@+id/notification"
-            android:icon="@drawable/message"
-            android:title="বার্তা"/>
+            android:id="@+id/hotline"
+            android:icon="@drawable/callicon"
+            android:title="হটলাইন" />
 
-
+        <item
+            android:id="@+id/search"
+            android:icon="@drawable/searchicon"
+            android:title="জিজ্ঞাসা" />
 
         <item
             android:id="@+id/about_us"
