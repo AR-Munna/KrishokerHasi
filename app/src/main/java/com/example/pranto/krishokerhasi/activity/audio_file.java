@@ -16,6 +16,11 @@ public class audio_file extends AppCompatActivity implements View.OnClickListene
     MediaPlayer mp;
     public static int pressCount = 0, flag;
     Button play_button;
+
+    boolean isBackbuttonPressed = false;
+
+    MediaPlayer mediaPlayer[] = new MediaPlayer[40];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +32,20 @@ public class audio_file extends AppCompatActivity implements View.OnClickListene
 
         play_button.setOnClickListener(this);
 
-        mp = MediaPlayer.create(audio_file.this, R.raw.maine);
+        //mp = MediaPlayer.create(audio_file.this, R.raw.maine);
+
+        //onBackPressed();
     }
 
+
+    @Override
+    public void onBackPressed() {
+        pressCount = 0;
+        mp.stop();
+        Intent intent = new Intent(audio_file.this, common_page.class);
+        startActivity(intent);
+        this.finish();
+    }
 
     @Override
     public void onClick(View view)
@@ -51,5 +67,10 @@ public class audio_file extends AppCompatActivity implements View.OnClickListene
                 mp.pause();
             }
         }
+    }
+
+    public void setMusic()
+    {
+
     }
 }

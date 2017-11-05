@@ -48,6 +48,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
     }
 
+    public DatabaseHelper(common_page context) {
+        super(context, DATABASE_NAME,null,1);
+        db = this.getWritableDatabase();
+    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {

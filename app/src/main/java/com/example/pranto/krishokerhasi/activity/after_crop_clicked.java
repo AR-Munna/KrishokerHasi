@@ -14,6 +14,8 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
 
     private static Button[] buttonArray = new Button[10];
     private static TextView[] TextViewArray = new TextView[10];
+    private int catagoryCode;
+    private int itemCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,8 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
 
         setButtonArray();
         setTextViewArray();
+
+        catagoryCode = 0;
 
         int noOfItems = GetnoOfItems(0);
 
@@ -40,7 +44,9 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
 
         if(id==R.id.rice_button)
         {
+            itemCode = (catagoryCode*100)+0;
             Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            intent.putExtra("itemcode", itemCode);
             startActivity(intent);
         }
     }

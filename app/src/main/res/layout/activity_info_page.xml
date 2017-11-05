@@ -8,9 +8,46 @@
     tools:context="com.example.pranto.krishokerhasi.activity.InfoPage"
     >
 
-    <TextView
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/textview_contentmain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"/>
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:background="@color/com_facebook_button_background_color_disabled"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textKrisokerhasi"
+                android:text="আপনার প্রয়োজনীয় তথ্যঃ"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textview_contentmain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/com_facebook_button_border_color_focused">
+
+        <TextView
+            android:id="@+id/textView"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </ScrollView>
+
 
 </RelativeLayout>

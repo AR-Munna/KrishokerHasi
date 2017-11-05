@@ -1,6 +1,7 @@
 package com.example.pranto.krishokerhasi.activity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
     private static Button[] buttonArray = new Button[7];
     private Button button;
     private Animation animAlpha, animRotate, animScale, animTranslate;
+    private int itemCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_common_page);
 
         setButtonArray();
+
+        itemCode = getIntent().getIntExtra("itemCode", 0);
 
         for (int i=0; i<7; i++) buttonArray[i].setOnClickListener(this);
     }
@@ -35,7 +39,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
 
         if(id==R.id.text_button)
         {
-            
+            GetOfflineData(itemCode);
         }
 
         else if(id==R.id.audio_button)
@@ -109,5 +113,37 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
 
             }
         });
+    }
+
+    void GetOfflineData(int i)
+    {
+        DatabaseHelper dbh = new DatabaseHelper(this);
+        boolean empty=false;
+
+        Cursor res = dbh.getAllData(i);
+        if(res.getCount()==0) {
+            empty = true;
+            //showMessage("Error","Nothing");
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while(res.moveToNext())
+        {buffer.append(res.getString(1)+"\n\n");}
+
+        String getrec=buffer.toString();
+
+        if(empty)
+            getrec = "Empty";
+
+        CreateIntent(getrec);
+    }
+
+    void CreateIntent(String data)
+    {
+        Intent i = new Intent(common_page.this, InfoPage.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("stuff", data);
+        i.putExtras(bundle);
+        startActivity(i);
     }
 }
