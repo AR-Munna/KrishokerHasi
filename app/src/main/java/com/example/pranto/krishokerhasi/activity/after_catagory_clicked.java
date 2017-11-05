@@ -56,42 +56,19 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void onClick(View view)
+    public void onClick(final View view)
     {
         int id = view.getId();
 
         if(id==R.id.Crops_button)
         {
-            /*animScale.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    Intent intent = new Intent(after_catagory_clicked.this, after_crop_clicked.class);
-                    startActivity(intent);
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-            });*/
-            view.startAnimation(animScale);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             Intent intent = new Intent(after_catagory_clicked.this, after_crop_clicked.class);
-            startActivity(intent);
+            animationStart(view, intent);
         }
 
         else if(id==R.id.Animal_button)
         {
-            view.startAnimation(animRotate);
+            //view.startAnimation(animRotate);
             //Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
             //startActivity(intent);
         }
@@ -113,7 +90,7 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
         else if(id==R.id.homebutton)
         {
             Intent intent = new Intent(after_catagory_clicked.this, MainActivity.class);
-            startActivity(intent);
+            animationStart(view, intent);
         }
     }
 
@@ -137,6 +114,28 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
         animal_button.setOnClickListener(this);
         home_button.setOnClickListener(this);
 
+    }
+
+    public void animationStart(View view, final Intent intent)
+    {
+        view.startAnimation(animScale);
+
+        animScale.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                startActivity(intent);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }
 

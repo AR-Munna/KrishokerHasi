@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.pranto.krishokerhasi.R;
@@ -14,6 +16,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
 
     private static Button[] buttonArray = new Button[7];
     private Button button;
+    private Animation animAlpha, animRotate, animScale, animTranslate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +33,27 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
     {
         int id = view.getId();
 
-        if(id==R.id.audio_button)
+        if(id==R.id.text_button)
+        {
+            
+        }
+
+        else if(id==R.id.audio_button)
         {
             Intent intent = new Intent(common_page.this, audio_file.class);
-            startActivity(intent);
+            animationStart(view, intent);
         }
         else if(id==R.id.ask_button)
         {
             Intent intent = new Intent(common_page.this, text_search.class);
-            startActivity(intent);
+            animationStart(view, intent);
         }
 
         else if(id == R.id.hotline_button)
         {
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
             callIntent.setData(Uri.parse("tel:+8801780552894"));
-            startActivity(callIntent);
+            animationStart(view, callIntent);
         }
 
         else if(id == R.id.share_button)
@@ -53,13 +61,13 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
             int from_where = 1;
             Intent intent = new Intent(common_page.this, MainActivity_socialnetwork.class);
             intent.putExtra("from_where", from_where);
-            startActivity(intent);
+            animationStart(view, intent);
         }
 
         else if(id==R.id.homebutton)
         {
             Intent intent = new Intent(common_page.this, MainActivity.class);
-            startActivity(intent);
+            animationStart(view, intent);
         }
     }
 
@@ -72,5 +80,34 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
         buttonArray[4] = (Button)findViewById(R.id.notification_button); //notification_button
         buttonArray[5] = (Button)findViewById(R.id.share_button); //share_button
         buttonArray[6] = (Button)findViewById(R.id.homebutton); //share_button
+
+        animAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        animRotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        animScale = AnimationUtils.loadAnimation(this, R.anim.scale);
+        animTranslate = AnimationUtils.loadAnimation(this, R.anim.translate);
+    }
+
+    /*--------------------------------animationStart function is used for animation---------------------------------*/
+
+    public void animationStart(View view, final Intent intent)
+    {
+        view.startAnimation(animScale);
+
+        animScale.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                startActivity(intent);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }

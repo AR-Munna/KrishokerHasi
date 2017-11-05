@@ -34,7 +34,8 @@
         <activity android:name=".activity.after_fish_clicked" />
         <activity android:name=".activity.after_fruits_clicked" />
         <activity android:name=".activity.text_search" />
-        <activity android:name=".activity.audio_file"></activity>
+        <activity android:name=".activity.audio_file" />
+        <activity android:name=".activity.text_page"></activity>
     </application>
 
 </manifest>
