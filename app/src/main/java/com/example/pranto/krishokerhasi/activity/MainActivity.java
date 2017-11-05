@@ -380,7 +380,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         final DatabaseHelper dbh = new DatabaseHelper(this);
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             mDatabase = FirebaseDatabase.getInstance().getReference().child("catagory/"+String.valueOf(i));
 
             final int finalI = i;

@@ -69,8 +69,53 @@ public class audio_file extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    /*-----------------------setMusic() function is used to set the music array------------------------*/
+
     public void setMusic()
     {
+        /*------------------------set the crops items audio file----------------------------------------*/
+
+        mediaPlayer[0] = MediaPlayer.create(audio_file.this, R.raw.rice);
+        mediaPlayer[1] = MediaPlayer.create(audio_file.this, R.raw.wheat);
+        mediaPlayer[2] = MediaPlayer.create(audio_file.this, R.raw.corn);
+        mediaPlayer[3] = MediaPlayer.create(audio_file.this, R.raw.potato);
+        mediaPlayer[4] = MediaPlayer.create(audio_file.this, R.raw.jute);
+        mediaPlayer[5] = MediaPlayer.create(audio_file.this, R.raw.sugarcane);
+        mediaPlayer[6] = MediaPlayer.create(audio_file.this, R.raw.begun);
+        mediaPlayer[7] = MediaPlayer.create(audio_file.this, R.raw.potol);
+
+        /*------------------------set the fruits items audio file----------------------------------------*/
+
+        mediaPlayer[0] = MediaPlayer.create(audio_file.this, R.raw.rice);
+        mediaPlayer[1] = MediaPlayer.create(audio_file.this, R.raw.wheat);
+        mediaPlayer[2] = MediaPlayer.create(audio_file.this, R.raw.corn);
+        mediaPlayer[3] = MediaPlayer.create(audio_file.this, R.raw.potato);
+        mediaPlayer[4] = MediaPlayer.create(audio_file.this, R.raw.jute);
+        mediaPlayer[5] = MediaPlayer.create(audio_file.this, R.raw.sugarcane);
+        mediaPlayer[6] = MediaPlayer.create(audio_file.this, R.raw.begun);
+        mediaPlayer[7] = MediaPlayer.create(audio_file.this, R.raw.potol);
+
+        /*------------------------set the fish items audio file----------------------------------------*/
+
+        mediaPlayer[0] = MediaPlayer.create(audio_file.this, R.raw.rice);
+        mediaPlayer[1] = MediaPlayer.create(audio_file.this, R.raw.wheat);
+        mediaPlayer[2] = MediaPlayer.create(audio_file.this, R.raw.corn);
+        mediaPlayer[3] = MediaPlayer.create(audio_file.this, R.raw.potato);
+        mediaPlayer[4] = MediaPlayer.create(audio_file.this, R.raw.jute);
+        mediaPlayer[5] = MediaPlayer.create(audio_file.this, R.raw.sugarcane);
+        mediaPlayer[6] = MediaPlayer.create(audio_file.this, R.raw.begun);
+        mediaPlayer[7] = MediaPlayer.create(audio_file.this, R.raw.potol);
+
+        /*------------------------set the animal items audio file----------------------------------------*/
+
+        mediaPlayer[0] = MediaPlayer.create(audio_file.this, R.raw.rice);
+        mediaPlayer[1] = MediaPlayer.create(audio_file.this, R.raw.wheat);
+        mediaPlayer[2] = MediaPlayer.create(audio_file.this, R.raw.corn);
+        mediaPlayer[3] = MediaPlayer.create(audio_file.this, R.raw.potato);
+        mediaPlayer[4] = MediaPlayer.create(audio_file.this, R.raw.jute);
+        mediaPlayer[5] = MediaPlayer.create(audio_file.this, R.raw.sugarcane);
+        mediaPlayer[6] = MediaPlayer.create(audio_file.this, R.raw.begun);
+        mediaPlayer[7] = MediaPlayer.create(audio_file.this, R.raw.potol);
 
     }
 }

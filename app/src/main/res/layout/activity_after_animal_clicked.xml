@@ -8,13 +8,29 @@
 
     <!--LinearLayout1 nisi jeno mobile screen er uporer bar theke option gula ektu distance e ase-->
 
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/selection_075">
-    </LinearLayout>
+        android:layout_height="90dp">
+
+        <TextView
+            android:background="@color/com_facebook_button_background_color_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textKrisokerhasi"
+            android:text=" কৃষকের হাসি"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <Button
+            android:id="@+id/homebutton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/homebutton"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <!--Scroll view add korsi, ei page ta ke scrollable bananor jonno-->
 
@@ -22,7 +38,7 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/LinearLayout1">
+        android:layout_below="@+id/RelativeLayout1">
 
         <!--Relative_layout_for_options er vitor common page er sob option gula rakbo :) -->
 

@@ -139,7 +139,7 @@
                     android:id="@+id/Animal_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="গবাদিপশু"
+                    android:text="গবাদিপশু-পাখি"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:background="@color/com_facebook_button_background_color_disabled"/>

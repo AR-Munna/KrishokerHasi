@@ -82,9 +82,8 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
 
         else if(id==R.id.Fruits_button)
         {
-            //view.startAnimation(animTranslate);
-            //Intent intent = new Intent(after_catagory_clicked.this, after_fruits_clicked.class);
-            //startActivity(intent);
+            Intent intent = new Intent(after_catagory_clicked.this, after_fruits_clicked.class);
+            animationStart(view, intent);
         }
 
         else if(id==R.id.homebutton)
