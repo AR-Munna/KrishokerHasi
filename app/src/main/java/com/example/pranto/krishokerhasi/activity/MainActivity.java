@@ -37,17 +37,30 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final long GET_DATA_INTERVAL = 1500;
+    private static final long GET_DATA_INTERVAL = 3000;
 
     //int images[] = {R.drawable.homepage1, R.drawable.homepage2,R.drawable.homepage3, R.drawable.homepage4,R.drawable.homepage5};
-    int images[] = {R.drawable.homepage1, R.drawable.homepage3, R.drawable.homepage4};
+    int images[] = {R.drawable.homepage1, R.drawable.homepage3, R.drawable.homepage4, R.drawable.homepage6, R.drawable.homepage7};
+    int images1[] = {R.drawable.homepage4, R.drawable.homepage1, R.drawable.homepage3, R.drawable.homepage7, R.drawable.homepage6};
+    int images2[] = {R.drawable.homepage6, R.drawable.homepage7, R.drawable.homepage1, R.drawable.homepage4, R.drawable.homepage3};
+    int images3[] = {R.drawable.homepage7, R.drawable.homepage4, R.drawable.homepage6, R.drawable.homepage3, R.drawable.homepage1};
 
     int index = 0;
+    int index1 = 0;
+    int index2 = 0;
+    int index3 = 0;
+
     Handler hand = new Handler();
+    Handler hand1 = new Handler();
+    Handler hand2 = new Handler();
+    Handler hand3 = new Handler();
 
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
+    private ImageView imageView;
     private ImageView imageView1;
+    private ImageView imageView2;
+    private ImageView imageView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +68,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setContentView(R.layout.activity_mainpage);
 
-        imageView1 = (ImageView)findViewById(R.id.backgroundImage1);
+        imageView = (ImageView)findViewById(R.id.backgroundImage1);
         hand.postDelayed(run, GET_DATA_INTERVAL);
+
+        imageView1 = (ImageView)findViewById(R.id.backgroundImage2);
+        hand1.postDelayed(run1, GET_DATA_INTERVAL);
+
+        imageView2 = (ImageView)findViewById(R.id.backgroundImage3);
+        hand2.postDelayed(run2, GET_DATA_INTERVAL);
+
+        imageView3 = (ImageView)findViewById(R.id.backgroundImage4);
+        hand3.postDelayed(run3, GET_DATA_INTERVAL);
 
         //first time app install dile frequency reset kore dea hbe
         FirstTimeRun();
@@ -83,12 +105,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         public void run() {
             if(index<images.length) {
-                imageView1.setBackgroundDrawable(getResources().getDrawable(images[index++]));
+                imageView.setBackgroundDrawable(getResources().getDrawable(images[index++]));
             }
             else {
                 index = 0;
             }
             hand.postDelayed(run, GET_DATA_INTERVAL);
+        }
+    };
+
+    Runnable run1 = new Runnable() {
+        @Override
+        public void run() {
+            if(index1<images1.length) {
+                imageView1.setBackgroundDrawable(getResources().getDrawable(images1[index1++]));
+            }
+            else {
+                index1 = 0;
+            }
+            hand1.postDelayed(run1, GET_DATA_INTERVAL);
+        }
+    };
+
+    Runnable run2 = new Runnable() {
+        @Override
+        public void run() {
+            if(index2<images2.length) {
+                imageView2.setBackgroundDrawable(getResources().getDrawable(images2[index2++]));
+            }
+            else {
+                index2 = 0;
+            }
+            hand2.postDelayed(run2, GET_DATA_INTERVAL);
+        }
+    };
+
+    Runnable run3 = new Runnable() {
+        @Override
+        public void run() {
+            if(index3<images3.length) {
+                imageView3.setBackgroundDrawable(getResources().getDrawable(images3[index3++]));
+            }
+            else {
+                index3 = 0;
+            }
+            hand3.postDelayed(run3, GET_DATA_INTERVAL);
         }
     };
 
@@ -193,7 +254,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (id == R.id.post)
         {
+            int from_where = 2;
             Intent intent = new Intent(MainActivity.this, MainActivity_socialnetwork.class);
+            intent.putExtra("from_where", from_where);
             startActivity(intent);
         }
 
@@ -294,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         final DatabaseHelper dbh = new DatabaseHelper(this);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 40; i++) {
             String indexa = String.valueOf(i/10);
             String indexb = String.valueOf(i%10);
             mDatabase = FirebaseDatabase.getInstance().getReference().child("update"+indexa+"/"+indexb);

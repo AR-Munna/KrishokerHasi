@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.common_page" />
         <activity android:name=".activity.after_catagory_clicked" />
         <activity android:name=".activity.after_update_clicked" />
@@ -34,7 +33,8 @@
         <activity android:name=".activity.after_crop_clicked" />
         <activity android:name=".activity.after_fish_clicked" />
         <activity android:name=".activity.after_fruits_clicked" />
-
+        <activity android:name=".activity.text_search" />
+        <activity android:name=".activity.audio_file"></activity>
     </application>
 
 </manifest>

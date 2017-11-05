@@ -8,25 +8,32 @@
     tools:context="com.example.pranto.krishokerhasi.activity.after_catagory_clicked">
 
 
-    <!--This LinearLayout is for the krisoker hasi image-->
+    <!--This Relativelayout is for the krisoker hasi image and homebutton-->
 
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/selection_075"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:layout_height="90dp">
 
+        <TextView
+            android:background="@color/com_facebook_button_background_color_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textKrisokerhasi"
+            android:text=" কৃষকের হাসি"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/homebutton"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/homebutton"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/freq"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_below="@id/LinearLayout1"/>
 
     <!--This Relative layout holds the 4 catagory :) -->
 
@@ -34,12 +41,12 @@
         android:id="@+id/Relative_layout_for_options"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/LinearLayout1">
+        android:layout_below="@+id/RelativeLayout1">
 
         <Button
             android:id="@+id/Crops_button"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
             android:background="@mipmap/crops"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="20dp"/>
@@ -51,15 +58,15 @@
             android:text="ফসল"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="35dp"
             android:textColor="@android:color/background_dark"
             />
 
         <Button
             android:id="@+id/Fruits_button"
             android:layout_marginLeft="210dp"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
             android:background="@mipmap/fruits"
             android:layout_marginTop="25dp"/>
 
@@ -76,11 +83,11 @@
 
         <Button
             android:id="@+id/Fish_button"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
             android:background="@mipmap/fish"
             android:layout_below="@+id/Crops_button"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"/>
 
@@ -92,18 +99,18 @@
             android:text="মাছ"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="40dp"
             android:textColor="@android:color/background_dark"
             />
 
         <Button
             android:id="@+id/Animal_button"
-            android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
             android:background="@mipmap/animals"
             android:layout_marginLeft="210dp"
             android:layout_below="@+id/Fruits_button"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="80dp"/>
 
 
         <TextView
@@ -117,6 +124,7 @@
             android:layout_marginLeft="233dp"
             android:textColor="@android:color/background_dark"
             />
+
 
 
 

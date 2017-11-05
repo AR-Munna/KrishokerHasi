@@ -1,5 +1,6 @@
 package com.example.pranto.krishokerhasi.activity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,11 +29,20 @@ public class after_crop_clicked extends AppCompatActivity implements View.OnClic
             buttonArray[i].setVisibility(View.GONE);
             TextViewArray[i].setVisibility(View.GONE);
         }
+
+        for (int i=0; i<noOfItems; i++) buttonArray[i].setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
+        int id = view.getId();
 
+        if(id==R.id.rice_button)
+        {
+            Intent intent = new Intent(after_crop_clicked.this, common_page.class);
+            startActivity(intent);
+        }
     }
 
     /*------------------this function will return no. of items for crops from sqlite database-------------*/

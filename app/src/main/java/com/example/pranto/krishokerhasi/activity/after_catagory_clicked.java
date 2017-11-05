@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,23 +14,23 @@ import com.example.pranto.krishokerhasi.R;
 
 public class after_catagory_clicked extends AppCompatActivity implements View.OnClickListener{
 
-    private Button crops_button, fruits_button, fish_button, animal_button;
+    private Button crops_button, fruits_button, fish_button, animal_button, home_button;
+
+    private Animation animAlpha, animRotate, animScale, animTranslate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_catagory_clicked);
 
-        //TextView freq = (TextView) findViewById(R.id.freq);
-        crops_button = (Button)findViewById(R.id.Crops_button);
-        fruits_button = (Button)findViewById(R.id.Fruits_button);
-        fish_button = (Button)findViewById(R.id.Fish_button);
-        animal_button = (Button)findViewById(R.id.Animal_button);
+        setButton();
 
-        crops_button.setOnClickListener(this);
-        fruits_button.setOnClickListener(this);
-        fish_button.setOnClickListener(this);
-        animal_button.setOnClickListener(this);
+        addfrequency(3);
+        addfrequency(2);
+        addfrequency(2);
+        addfrequency(0);
+        addfrequency(2);
+        addfrequency(0);
     }
 
     int Getfrequency(int i)
@@ -60,27 +62,81 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
 
         if(id==R.id.Crops_button)
         {
+            /*animScale.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    Intent intent = new Intent(after_catagory_clicked.this, after_crop_clicked.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });*/
+            view.startAnimation(animScale);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             Intent intent = new Intent(after_catagory_clicked.this, after_crop_clicked.class);
             startActivity(intent);
         }
 
         else if(id==R.id.Animal_button)
         {
-            Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
-            startActivity(intent);
+            view.startAnimation(animRotate);
+            //Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
+            //startActivity(intent);
         }
 
         else if(id==R.id.Fish_button)
         {
-            Intent intent = new Intent(after_catagory_clicked.this, after_fish_clicked.class);
-            startActivity(intent);
+            //view.startAnimation(animScale);
+            //Intent intent = new Intent(after_catagory_clicked.this, after_fish_clicked.class);
+            //startActivity(intent);
         }
 
         else if(id==R.id.Fruits_button)
         {
-            Intent intent = new Intent(after_catagory_clicked.this, after_fruits_clicked.class);
+            //view.startAnimation(animTranslate);
+            //Intent intent = new Intent(after_catagory_clicked.this, after_fruits_clicked.class);
+            //startActivity(intent);
+        }
+
+        else if(id==R.id.homebutton)
+        {
+            Intent intent = new Intent(after_catagory_clicked.this, MainActivity.class);
             startActivity(intent);
         }
+    }
+
+    public void setButton()
+    {
+        animAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        animRotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        animScale = AnimationUtils.loadAnimation(this, R.anim.scale);
+        animTranslate = AnimationUtils.loadAnimation(this, R.anim.translate);
+
+        //TextView freq = (TextView) findViewById(R.id.freq);
+        crops_button = (Button)findViewById(R.id.Crops_button);
+        fruits_button = (Button)findViewById(R.id.Fruits_button);
+        fish_button = (Button)findViewById(R.id.Fish_button);
+        animal_button = (Button)findViewById(R.id.Animal_button);
+        home_button = (Button)findViewById(R.id.homebutton);
+
+        crops_button.setOnClickListener(this);
+        fruits_button.setOnClickListener(this);
+        fish_button.setOnClickListener(this);
+        animal_button.setOnClickListener(this);
+        home_button.setOnClickListener(this);
+
     }
 }
 

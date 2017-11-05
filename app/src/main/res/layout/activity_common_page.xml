@@ -7,14 +7,29 @@
     <!--LinearLayout1 nisi jeno mobile screen er uporer bar theke option gula ektu distance e ase-->
 
 
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/selection_075">
+        android:layout_height="80dp">
 
-    </LinearLayout>
+        <TextView
+            android:background="@color/com_facebook_button_background_color_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textKrisokerhasi"
+            android:text=" কৃষকের হাসি"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <Button
+            android:id="@+id/homebutton"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/homebutton"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <!--Relative_layout_for_options er vitor common page er sob option gula rakbo :) -->
 
@@ -24,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/LinearLayout1">
+        android:layout_below="@+id/RelativeLayout1">
 
         <Button
             android:id="@+id/text_button"

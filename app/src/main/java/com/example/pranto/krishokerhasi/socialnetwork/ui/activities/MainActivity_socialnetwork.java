@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.pranto.krishokerhasi.R;
 import com.example.pranto.krishokerhasi.activity.MainActivity;
+import com.example.pranto.krishokerhasi.activity.common_page;
 import com.example.pranto.krishokerhasi.socialnetwork.models.User;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.fragments.HomeFragment;
 import com.example.pranto.krishokerhasi.socialnetwork.utils.BaseActivity;
@@ -30,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity_socialnetwork extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private int from_where;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private ImageView mDisplayImageView;
     private TextView mNameTextView;
@@ -40,6 +42,8 @@ public class MainActivity_socialnetwork extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_socialnetwork);
+
+        from_where = getIntent().getIntExtra("from_where", 0);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -152,9 +156,19 @@ public class MainActivity_socialnetwork extends BaseActivity
 
         else if (id == R.id.logoutButton)
         {
-            Intent intent = new Intent(MainActivity_socialnetwork.this, MainActivity.class);
-            this.finish();
-            startActivity(intent);
+            if(from_where==2)
+            {
+                Intent intent = new Intent(MainActivity_socialnetwork.this, MainActivity.class);
+                this.finish();
+                startActivity(intent);
+            }
+
+            else if(from_where==1)
+            {
+                Intent intent = new Intent(MainActivity_socialnetwork.this, common_page.class);
+                this.finish();
+                startActivity(intent);
+            }
         }
 
         else if (id == R.id.yourPost)
