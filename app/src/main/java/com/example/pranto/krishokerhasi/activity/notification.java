@@ -25,6 +25,8 @@ public class notification extends AppCompatActivity {
 
     String ItemCode;
 
+    int m;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
