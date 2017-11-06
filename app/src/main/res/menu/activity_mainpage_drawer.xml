@@ -33,8 +33,8 @@
             android:title="আমাদের সম্পর্কে"/>
 
         <item
-            android:icon="@drawable/rating"
-            android:id="@+id/rating"
+            android:icon="@drawable/news"
+            android:id="@+id/krisinews"
             android:title="কৃষি খবর"/>
 
         <item

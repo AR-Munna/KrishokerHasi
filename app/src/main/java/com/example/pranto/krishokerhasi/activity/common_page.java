@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.pranto.krishokerhasi.R;
 import com.example.pranto.krishokerhasi.socialnetwork.ui.activities.MainActivity_socialnetwork;
@@ -19,6 +20,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
     private Button button;
     private Animation animAlpha, animRotate, animScale, animTranslate;
     private int itemCode, audioCode;
+    private String ItemName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,27 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
 
         itemCode = getIntent().getIntExtra("itemcode", 0);
         audioCode = (itemCode/10)+(itemCode%10);
+        ItemName = GetItemName(audioCode/10,audioCode%10);
 
         for (int i=0; i<7; i++) buttonArray[i].setOnClickListener(this);
+    }
+
+    private String GetItemName(int catagoryCode, int indexCode) {
+        DatabaseHelper dbh = new DatabaseHelper(this);
+
+        Cursor res = dbh.getAllData(catagoryCode+600);
+        if(res.getCount()==0)
+            return "";
+
+        StringBuffer buffer = new StringBuffer();
+        while(res.moveToNext())
+        {buffer.append(res.getString(1));}
+
+        String Catagory=buffer.toString();
+        //return Catagory;
+
+        String[] Items = Catagory.split(",");
+        return Items[indexCode];
     }
 
     @Override
@@ -67,6 +88,13 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
             int from_where = 1;
             Intent intent = new Intent(common_page.this, MainActivity_socialnetwork.class);
             intent.putExtra("from_where", from_where);
+            animationStart(view, intent);
+        }
+
+        else if(id == R.id.notification_button)
+        {
+            Intent intent = new Intent(common_page.this, notification.class);
+            intent.putExtra("ItemName", ItemName);
             animationStart(view, intent);
         }
 
@@ -148,4 +176,7 @@ public class common_page extends AppCompatActivity implements View.OnClickListen
         i.putExtras(bundle);
         startActivity(i);
     }
+    void ToastMethod(String str)
+    {Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();}
+
 }

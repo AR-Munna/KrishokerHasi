@@ -35,6 +35,17 @@
         <activity android:name=".activity.after_fruits_clicked" />
         <activity android:name=".activity.text_search" />
         <activity android:name=".activity.audio_file" />
+        <activity android:name=".activity.notification" />
+        <activity android:name=".activity.NotificationActivity"></activity>
+
+        <receiver android:name=".java_class.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

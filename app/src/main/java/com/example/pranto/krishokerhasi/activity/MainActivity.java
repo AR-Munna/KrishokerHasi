@@ -405,6 +405,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     String catagory = dataSnapshot.getValue().toString() ;
                     String[] separatedcatagory = catagory.split(",");
                     boolean isInseted = dbh.insertData(finalI+500, String.valueOf(separatedcatagory.length));
+                    boolean isInseted1 = dbh.insertData(finalI+600, catagory);
                     SaveOfflineData(finalI,separatedcatagory);}
 
                 @Override
