@@ -24,13 +24,6 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_after_catagory_clicked);
 
         setButton();
-
-        addfrequency(3);
-        addfrequency(2);
-        addfrequency(2);
-        addfrequency(0);
-        addfrequency(2);
-        addfrequency(0);
     }
 
     int Getfrequency(int i)
@@ -62,24 +55,28 @@ public class after_catagory_clicked extends AppCompatActivity implements View.On
 
         if(id==R.id.Crops_button)
         {
+            addfrequency(0);
             Intent intent = new Intent(after_catagory_clicked.this, after_crop_clicked.class);
             animationStart(view, intent);
         }
 
         else if(id==R.id.Animal_button)
         {
+            addfrequency(3);
             Intent intent = new Intent(after_catagory_clicked.this, after_animal_clicked.class);
             animationStart(view, intent);
         }
 
         else if(id==R.id.Fish_button)
         {
+            addfrequency(2);
             Intent intent = new Intent(after_catagory_clicked.this, after_fish_clicked.class);
             animationStart(view, intent);
         }
 
         else if(id==R.id.Fruits_button)
         {
+            addfrequency(1);
             Intent intent = new Intent(after_catagory_clicked.this, after_fruits_clicked.class);
             animationStart(view, intent);
         }

@@ -28,13 +28,8 @@
             android:title="জিজ্ঞাসা" />
 
         <item
-            android:id="@+id/about_us"
-            android:icon="@drawable/about_us_icon"
-            android:title="আমাদের সম্পর্কে"/>
-
-        <item
             android:icon="@drawable/news"
-            android:id="@+id/krisinews"
+            android:id="@+id/about_us"
             android:title="কৃষি খবর"/>
 
         <item

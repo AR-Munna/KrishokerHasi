@@ -280,7 +280,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final DatabaseHelper dbh = new DatabaseHelper(this);
         dbh.db.execSQL("DROP TABLE IF EXISTS " + dbh.table);
         dbh.db.execSQL("create table " + dbh.table + " (ID INTEGER,INFO TEXT)");
-        int[] arr = {0, 0, 0, 0};
+        //int[] arr = {0, 0, 0, 0};
+        int[] arr = {1,1,1,1};
 
         for (int i = 0; i < 4; i++) {
             boolean isInseted = dbh.insertData(i + 1000, String.valueOf(arr[i]));

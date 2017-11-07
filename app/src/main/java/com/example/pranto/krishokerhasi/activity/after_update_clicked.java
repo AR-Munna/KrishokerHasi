@@ -38,12 +38,12 @@ public class after_update_clicked extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_update_clicked);
 
-        //btn = new Button[10];
+        /*btn = new Button[10];
         textView = (TextView)findViewById(R.id.tv);
         editText = (EditText)findViewById(R.id.edittext1);
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
+        button3 = (Button) findViewById(R.id.button3);*/
         ll = (LinearLayout ) findViewById(R.id.ll_parent);
 
         list = new String[20];
@@ -58,7 +58,7 @@ public class after_update_clicked extends AppCompatActivity implements View.OnCl
         int [] sortedindex = SortIndexByFrequencyRatio(BackupFrequencyRatio);
         final String y = DivideRatio(FrequencyRatio,sortedindex);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        /*button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 GetOnlineData(0);
@@ -80,7 +80,7 @@ public class after_update_clicked extends AppCompatActivity implements View.OnCl
                 GetOfflineData(query);
 
             }
-        });
+        });*/
     }
 
     //net asche ki nai dekhe data niya ase
