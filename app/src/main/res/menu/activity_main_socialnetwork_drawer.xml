@@ -19,17 +19,5 @@
             android:title="লগ আউট" />
     </group>
 
-    <item android:title="প্রোফাইল">
-        <menu>
-            <item
-                android:id="@+id/yourPost"
-                android:icon="@mipmap/allpost"
-                android:title="আপনার পোস্টসমূহ" />
-            <item
-                android:id="@+id/allUsers"
-                android:icon="@mipmap/alluser"
-                android:title="ফ্রেন্ডস" />
-        </menu>
-    </item>
 
 </menu>

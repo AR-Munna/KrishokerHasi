@@ -171,12 +171,6 @@ public class MainActivity_socialnetwork extends BaseActivity
             }
         }
 
-        else if (id == R.id.yourPost)
-        {
-
-        }
-        else if (id == R.id.allUsers) {
-            }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
