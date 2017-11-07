@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--LinearLayout1 nisi jeno mobile screen er uporer bar theke option gula ektu distance e ase-->
-
 
     <RelativeLayout
         android:id="@+id/RelativeLayout1"
@@ -31,21 +29,19 @@
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
-    <!--Relative_layout_for_options er vitor common page er sob option gula rakbo :) -->
-
 
     <RelativeLayout
         android:id="@+id/Relative_layout_for_options"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/RelativeLayout1">
 
         <Button
             android:id="@+id/text_button"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:background="@mipmap/text"
+            android:background="@mipmap/text1"
             android:layout_marginLeft="25dp" />
 
         <TextView
@@ -64,7 +60,7 @@
             android:layout_marginLeft="220dp"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:background="@mipmap/audio"/>
+            android:background="@mipmap/audio1"/>
 
         <TextView
             android:layout_width="180dp"
@@ -81,7 +77,7 @@
             android:id="@+id/ask_button"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:background="@mipmap/ask"
+            android:background="@mipmap/ask1"
             android:layout_below="@+id/text_button"
             android:layout_marginTop="60dp"
             android:layout_alignParentLeft="true"
@@ -103,7 +99,7 @@
             android:id="@+id/hotline_button"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:background="@mipmap/call"
+            android:background="@drawable/call2"
             android:layout_marginLeft="220dp"
             android:layout_below="@+id/audio_button"
             android:layout_marginTop="60dp"/>
@@ -124,7 +120,7 @@
             android:id="@+id/notification_button"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:background="@mipmap/notification"
+            android:background="@mipmap/noti1"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/ask_button"
             android:layout_marginTop="60dp"
@@ -145,7 +141,7 @@
             android:id="@+id/share_button"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:background="@mipmap/share"
+            android:background="@mipmap/notification1"
             android:layout_marginLeft="220dp"
             android:layout_below="@+id/hotline_button"
             android:layout_marginTop="60dp"/>
